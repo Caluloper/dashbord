@@ -27,3 +27,14 @@ export interface Current {
   apparent_temperature: number
   wind_speed_10m: number
 }
+
+export interface UseFetchDataResult {
+  data: OpenMeteoResponse | null
+  loading: boolean
+  error: string | null
+}
+
+export interface SelectorUIProps {
+  value: string;
+  onChange: (newCity: string) => void;
+}

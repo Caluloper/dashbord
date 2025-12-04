@@ -2,15 +2,13 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { type SelectChangeEvent } from '@mui/material/Select';
-import { useState } from 'react';
+import { type SelectorUIProps } from '../types/DashboardTypes';
 
-export default function SelectorUI() {
-
-  const [cityInput, setCityInput] = useState<string>("");
+export default function SelectorUI({ value, onChange }: SelectorUIProps) {
 
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setCityInput(event.target.value as string);
-  };
+    onChange(event.target.value as string);
+    };
 
   return (
     <FormControl fullWidth>
@@ -26,11 +24,11 @@ export default function SelectorUI() {
         <MenuItem value={"manta"}>Manta</MenuItem>
         <MenuItem value={"cuenca"}>Cuenca</MenuItem>
       </Select>
-      {cityInput &&
+      {value &&
         <p>
-          Información del clima en
+          Información del clima en 
           <span style={{ textTransform: 'capitalize', fontWeight: 'bold' }}>
-            {cityInput}
+            {value}
           </span>
         </p>
       }
