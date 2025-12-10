@@ -1,40 +1,54 @@
 export interface OpenMeteoResponse {
-  latitude: number
-  longitude: number
-  generationtime_ms: number
-  utc_offset_seconds: number
-  timezone: string
-  timezone_abbreviation: string
-  elevation: number
-  current_units: CurrentUnits
-  current: Current
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+  current_units: CurrentUnits;
+  current: Current;
+  hourly_units?: HourlyUnits;
+  hourly?: Hourly;
 }
 
 export interface CurrentUnits {
-  time: string
-  interval: string
-  temperature_2m: string
-  relative_humidity_2m: string
-  apparent_temperature: string
-  wind_speed_10m: string
+  time: string;
+  interval: string;
+  temperature_2m: string;
+  relative_humidity_2m: string;
+  apparent_temperature: string;
+  wind_speed_10m: string;
 }
 
 export interface Current {
-  time: string
-  interval: number
-  temperature_2m: number
-  relative_humidity_2m: number
-  apparent_temperature: number
-  wind_speed_10m: number
+  time: string;
+  interval: number;
+  temperature_2m: number;
+  relative_humidity_2m: number;
+  apparent_temperature: number;
+  wind_speed_10m: number;
 }
 
 export interface UseFetchDataResult {
-  data: OpenMeteoResponse | null
-  loading: boolean
-  error: string | null
+  data: OpenMeteoResponse | null;
+  loading: boolean;
+  error: string | null;
 }
 
 export interface SelectorUIProps {
   value: string;
   onChange: (newCity: string) => void;
+}
+
+export interface HourlyUnits {
+  time: string;
+  temperature_2m: string;
+  wind_speed_10m: string;
+}
+
+export interface Hourly {
+  time: string[];
+  temperature_2m: number[];
+  wind_speed_10m: number[];
 }

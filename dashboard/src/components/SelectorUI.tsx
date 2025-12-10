@@ -26,10 +26,7 @@ export default function SelectorUI({ value, onChange }: SelectorUIProps) {
       </Select>
       {value &&
         <p>
-          Información del clima en 
-          <span style={{ textTransform: 'capitalize', fontWeight: 'bold' }}>
-            {value}
-          </span>
+          Información del clima en <span style={{ textTransform: 'capitalize', fontWeight: 'bold' }}>{value}</span>
         </p>
       }
     </FormControl>

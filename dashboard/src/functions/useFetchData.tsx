@@ -31,7 +31,7 @@ export default function useFetchData(city: string): UseFetchDataResult {
     const config = CITY_CONFIG[city as keyof typeof CITY_CONFIG];
     if (!config) return;
 
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${config.latitude}&longitude=${config.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${config.latitude}&longitude=${config.longitude}&hourly=temperature_2m,wind_speed_10m&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m&timezone=auto`;
 
     (async () => {
       try {

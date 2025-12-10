@@ -5,6 +5,8 @@ import AlertUI from './components/AlertUI';
 import SelectorUI from './components/SelectorUI';
 import IndicatorUI from './components/IndicatorUI';
 import useFetchData from './functions/useFetchData';
+import ChartUI from './components/ChartUI';
+import TableUI from './components/TableUI';
 import { useState } from 'react';
 
 function App() {
@@ -39,7 +41,7 @@ function App() {
           <Grid size={12}>
             <IndicatorUI
               title='Cargando'
-              description='Espera'
+              description='Seleccione una ciudad'
             />
           </Grid>
         )}
@@ -85,13 +87,13 @@ function App() {
       {/* Gráfico */}
       <Grid size={{ xs: 12, md: 6 }}
         sx={{ display: { xs: "none", md: "block" } }}>
-        Elemento: Gráfico
+        <ChartUI data={data} loading={loading} error={error} />
       </Grid>
 
       {/* Tabla */}
       <Grid size={{ xs: 12, md: 6 }}
         sx={{ display: { xs: "none", md: "block" } }}>
-        Elemento: Tabla
+        <TableUI data={data} loading={loading} error={error} />
       </Grid>
 
       {/* Información adicional */}
