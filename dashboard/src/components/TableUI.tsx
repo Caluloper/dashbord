@@ -50,7 +50,7 @@ export default function TableUI({ data, loading, error }: TableUIProps) {
    }>>([]);
 
    useEffect(() => {
-      if (data?.hourly) {
+      if (data?.hourly && data.hourly.time) {
          // Tomar los primeros 5 datos horarios
          const sliceLength = Math.min(5, data.hourly.time.length);
          const newRows = data.hourly.time.slice(0, sliceLength).map((time, index) => {
@@ -66,8 +66,8 @@ export default function TableUI({ data, loading, error }: TableUIProps) {
             return {
                id: index,
                hora,
-               temperatura: Math.round(data.hourly.temperature_2m[index] * 10) / 10,
-               velocidad_viento: Math.round(data.hourly.wind_speed_10m[index] * 10) / 10,
+               temperatura: Math.round((data.hourly?.temperature_2m[index] ?? 0) * 10) / 10,
+               velocidad_viento: Math.round((data.hourly?.wind_speed_10m[index] ?? 0) * 10) / 10,
             };
          });
          setRows(newRows);
