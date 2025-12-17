@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 
 export default function HeaderUI() {
     return (
-        <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h2" component="h1" color="primary" sx={{ fontWeight: "bold" }}>
             Dashboard del clima
         </Typography>
     )
